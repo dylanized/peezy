@@ -11,4 +11,6 @@
 	if (?theme) req.theme = "theme";
 	else req.theme = config.theme;
 
+	// render partials on demand
+
 	render_theme();
