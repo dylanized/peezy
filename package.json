@@ -1,0 +1,24 @@
+{
+  "name": "express-lite",
+  "version": "1.0.0",
+  "description": "A lightweight theme engine based on Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylanized/express-lite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylanized/express-lite/issues"
+  },
+  "homepage": "https://github.com/dylanized/express-lite#readme",
+  "dependencies": {
+    "ejs-locals": "^1.0.2",
+    "express": "^4.13.3",
+    "underscore": "^1.8.3"
+  }
+}
