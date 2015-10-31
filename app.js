@@ -26,6 +26,9 @@
 	paths.pages = path.join(folders.content, folders.pages);
 	paths.homepage = path.join(paths.pages, site.homepage);
 	
+	// set vars
+	var test_mode = true;
+	
 	// instantiate express
 	var app = express();
 	var port = process.env.PORT || 8080;
@@ -52,6 +55,9 @@
 		});
 		
 		router.param("page", function(req, res, next, page) {
+		
+			test_msg("Request: " + page);
+		
 		    req.page = page;
 		    next(); 
 		});
@@ -77,7 +83,7 @@
 		
 			for (i = 0; i < file_formats.length; i++) {
 			
-				console.log(filepath + file_formats[i]);
+				test_msg("Tried to read: " + filepath + file_formats[i]);
 			
 				// if file exists, return its contents
 				if (fileExists(filepath + file_formats[i])) return fs.readFileSync(filepath + file_formats[i], "utf8");
@@ -87,4 +93,11 @@
 		// else return an error
 		return false;
 				
+	}
+	
+	function test_msg(msg1, msg2) {
+		if (test_mode) {
+			console.log(msg1);
+			if (msg2) console.log(msg2);
+		}
 	}	
