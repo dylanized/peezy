@@ -45,21 +45,29 @@
 	// index
 	
 		router.get("/", function(req, res) {
+			req.slug = "";
 		    res.render("index", {content: readFileSync(paths.homepage)});
 		});
 	
-	// other pages
+	// pages
 	
 		router.get("/:slug", function(req, res) {
-		    res.render("index", {content: readFileSync(path.join(paths.pages, req.slug))});
+			if (req.slug) res.render("index", {content: readFileSync(path.join(paths.pages, req.slug))});
 		});
 		
 		router.param("slug", function(req, res, next, slug) {
+
+			// if request is not an asset file		
+			if (slug.indexOf(".") == -1) {
 		
-			test_msg("Request: " + slug);
-		
-		    req.slug = slug;
+				// assign the slug
+				test_msg("Request: " + slug);		
+			    req.slug = slug;
+		    
+		    }
+		    
 		    next(); 
+		    
 		});
 	
 	// apply routes and start the server
