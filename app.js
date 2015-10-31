@@ -82,9 +82,7 @@
 		// list file formats
 		
 			var file_formats = [
-				".html",
-				".ejs",
-				""
+				".html"
 			];
 
 		// for each file format	
