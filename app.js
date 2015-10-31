@@ -69,7 +69,6 @@
 		
 			var file_formats = [
 				".html",
-				".md",
 				".ejs",
 				""
 			];
@@ -77,6 +76,8 @@
 		// for each file format	
 		
 			for (i = 0; i < file_formats.length; i++) {
+			
+				console.log(filepath + file_formats[i]);
 			
 				// if file exists, return its contents
 				if (fileExists(filepath + file_formats[i])) return fs.readFileSync(filepath + file_formats[i], "utf8");
