@@ -81,9 +81,7 @@
 	
 		// list file formats
 		
-			var file_formats = [
-				".html"
-			];
+			var file_formats = [".html"];
 
 		// for each file format	
 		
