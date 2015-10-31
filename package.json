@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/dylanized/express-lite#readme",
   "dependencies": {
+    "ejs": "^2.3.4",
     "ejs-locals": "^1.0.2",
+    "exists-file": "^1.0.0",
     "express": "^4.13.3",
     "underscore": "^1.8.3"
   }
