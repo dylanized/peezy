@@ -1,21 +1,21 @@
 {
-  "name": "express-lite",
+  "name": "peezy-demo",
   "version": "1.0.0",
-  "description": "A lightweight theme engine based on Express.js",
+  "description": "A very simple content management system",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dylanized/express-lite.git"
+    "url": "git+https://github.com/dylanized/peezy.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dylanized/express-lite/issues"
+    "url": "https://github.com/dylanized/peezy/issues"
   },
-  "homepage": "https://github.com/dylanized/express-lite#readme",
+  "homepage": "https://github.com/dylanized/peezy#readme",
   "dependencies": {
     "ejs": "^2.3.4",
     "ejs-locals": "^1.0.2",
