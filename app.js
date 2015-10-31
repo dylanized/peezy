@@ -42,13 +42,13 @@
 	// index
 	
 		router.get("/", function(req, res) {
-		    res.render("index", {content: fileOpen(paths.homepage)});
+		    res.render("index", {content: readFileSync(paths.homepage)});
 		});
 	
 	// other pages
 	
 		router.get("/:page", function(req, res) {
-		    res.render("index", {content: fileOpen(path.join(paths.pages, req.page))});
+		    res.render("index", {content: readFileSync(path.join(paths.pages, req.page))});
 		});
 		
 		router.param("page", function(req, res, next, page) {
@@ -63,22 +63,27 @@
 		
 // functions
 
-	function fileOpen(filepath) {
+	function readFileSync(filepath) {
 	
-		var file_formats = [
-			".html",
-			".md",
-			".ejs"
-		];
-	
-		if (fileExists(filepath)) return fs.readFileSync(filepath, "utf8");
-	
-		else {
-			file_formats.forEach(function(file_format) {
-				if (fileExists(filepath + file_format)) return fs.readFileSync(filepath + file_format, "utf8");
-			});	
-		}		
+		// list file formats
+		
+			var file_formats = [
+				".html",
+				".md",
+				".ejs",
+				""
+			];
 
+		// for each file format	
+		
+			for (i = 0; i < file_formats.length; i++) {
+			
+				// if file exists, return its contents
+				if (fileExists(filepath + file_formats[i])) return fs.readFileSync(filepath + file_formats[i], "utf8");
+			
+			}	
+
+		// else return an error
 		return false;
 				
-	}
+	}	
