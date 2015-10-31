@@ -50,15 +50,15 @@
 	
 	// other pages
 	
-		router.get("/:page", function(req, res) {
-		    res.render("index", {content: readFileSync(path.join(paths.pages, req.page))});
+		router.get("/:slug", function(req, res) {
+		    res.render("index", {content: readFileSync(path.join(paths.pages, req.slug))});
 		});
 		
-		router.param("page", function(req, res, next, page) {
+		router.param("slug", function(req, res, next, slug) {
 		
-			test_msg("Request: " + page);
+			test_msg("Request: " + slug);
 		
-		    req.page = page;
+		    req.slug = slug;
 		    next(); 
 		});
 	
@@ -83,7 +83,7 @@
 		
 			for (i = 0; i < file_formats.length; i++) {
 			
-				test_msg("Tried to read: " + filepath + file_formats[i]);
+				test_msg("Trying to read: " + filepath + file_formats[i]);
 			
 				// if file exists, return its contents
 				if (fileExists(filepath + file_formats[i])) return fs.readFileSync(filepath + file_formats[i], "utf8");
