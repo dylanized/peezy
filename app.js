@@ -33,7 +33,7 @@
 	// set up view engine
 	app.set("view engine", "ejs");	
 	app.set("views", paths.abstheme);	
-	app.use(express.static(paths.theme));
+	app.use("/", express.static(paths.theme));
 
 // routing
 
