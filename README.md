@@ -1,10 +1,10 @@
 # Peezy
-A very simple content management system (based on Express.js)
+A very simple content management system. Based on Express.js, inspired by WordPress, Jekyll and Harp.
 
 Usage
 - clone this repo
-- add theme in /themes
-- add content in /content/pages
+- add theme folder in /themes
+- add content files to /content/pages in html or md format
 - run server
 
 Work in progress!
