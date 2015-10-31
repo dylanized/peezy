@@ -7,7 +7,7 @@ Usage
 - add content files to /content/pages in html or md format
 - run server
 
-Work in progress!
+Not functional at all - Work in progress!
 
 by @dylanized
 
