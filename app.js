@@ -12,13 +12,14 @@
 		"homepage": "index"
 	};
 	
-	// app config
+	// folder config
 	var folders = {
 		"themes": "themes",
 		"content": "content",
 		"pages": "pages"	
 	};
 	
+	// build paths
 	var paths = {};	
 	paths.theme = path.join(folders.themes, site.theme);
 	paths.pages = path.join(folders.content, folders.pages);
@@ -32,8 +33,6 @@
 	app.set("view engine", "ejs");	
 	app.set("views", path.join(__dirname, folders.themes, site.theme));	
 	app.use(express.static(path.join(folders.themes, site.theme)));
-
-// config
 
 // routing
 
