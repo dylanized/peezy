@@ -2,23 +2,40 @@
 
 Peezy is a micro-CMS for Node.js. 
 
-Using it is easy:
-
-- clone this repo
-- npm install
-- add content to /site/content/
-- customize the theme in /site/themes/default
-- start the server
-
 This is an experiment in building a minimalist flat-file publishing engine built on Express.js. Inspired heavily by WordPress, Jekyll and Harp.
 
-Add html files to the /site/content/ folder. Peezy will turn the filenames into clean "permalink"-style URLs. So "/site/content/about.html" becomes "yourdomain.com/about", and so on.
+Step 1 - Install
 
-Peezy site organization:
+Clone this repo and do an ```npm install```.
 
-- /site/content/ :: html files go here
-- /site/themes/ :: dynamic theme files and static theme assets go here
-- /site/public/ :: extra static files go here
+Step 2 - Add content
+
+Add content files to /site/content, in ```.html``` format.
+
+Example:
+
+- /site/content/index.html (homepage)
+- /site/content/about.html (/about page)
+- /site/content/credits.html (/credits page)
+
+Peezy will turn your filenames into clean "permalink"-style URLs. 
+
+Step 3 - Customize the theme
+
+There is a default theme in /themes/default. It's structured like this:
+
+- /site/themes/default/index.ejs
+- /site/themes/default/css (css files)
+- /site/themes/default/js (js files)
+- /site/themes/default/favicon.ico 
+
+Customize the theme and add files as needed. Peezy will wrap the theme around your content files.
+
+You can also clone the default theme and change the theme name in the site settings.
+
+Step 4 - Start the server
+
+```node app.js```
 
 Alpha version. Work in progress!
 
