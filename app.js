@@ -3,8 +3,7 @@
 	// libraries
 	var express = require("express"),
 		path = require("path"),
-		fileExists = require("exists-file"),
-		fs = require("fs");
+		fileHelper = require("peezy-file-helper");
 	
 	// site config
 	var site = {
@@ -37,9 +36,6 @@
 	paths.themes_abs = path.join(__dirname, folders.themes);
 	paths.themes_rel = "/" + subfolders["themes"];
 	
-	paths.theme = path.join(folders.themes, site.theme);
-	paths.theme_abs = path.join(__dirname, paths.theme);
-	
 	paths.content = path.join(folders.content);
 	paths.homepage = path.join(paths.content, site.homepage);	
 	paths.error = path.join(paths.content, site.error);
@@ -54,10 +50,7 @@
 	var port = process.env.PORT || 8080;
 	
 	// set up view engine
-	app.set("view engine", "ejs");	
-	
-	// set view folder
-	app.set("views", paths.theme_abs);	
+	app.set("view engine", "ejs");
 	
 	// serve themes static files
 	app.use(paths.themes_rel, express.static(paths.themes_abs));	
@@ -73,15 +66,14 @@
 	
 		router.get("/", function(req, res) {
 			req.slug = site.homepage;
-			console.log("Route 1");
-			console.log(req.slug);
-		    renderTheme("index", req, res);
+		    renderTemplate("index", req, res);
 		});
 	
 	// pages
 	
 		router.get("/:slug", function(req, res) {
-			if (req.slug) renderTheme("index", req, res);
+			// if req passed the param filter, render the theme
+			if (req.slug) renderTemplate("index", req, res);
 		});
 		
 		router.param("slug", function(req, res, next, slug) {
@@ -89,8 +81,7 @@
 			// if request is not an asset file		
 			if (slug.indexOf(".") == -1) {
 		
-				// assign the slug
-				test_msg("Request: " + slug);		
+				// assign the slug	
 			    req.slug = slug;
 		    
 		    }
@@ -106,18 +97,29 @@
 		
 // functions
 
-	function renderTheme(template, req, res) {
+	function loadTheme(theme, app) {
+	
+		// set vars
+		site.theme = theme;
+		paths.theme = path.join(folders.themes, theme);
+		paths.theme_abs = path.join(__dirname, paths.theme);
+		
+		// load folder
+		app.set("views", paths.theme_abs);							
+		
+	}
+
+	function renderTemplate(template, req, res) {
 	
 		// build page vars
 		var pageVars = buildPageVars(req);
 		
-		// if theme override
-		if (req.query.theme) {		
-			// set override view folder
-			var theme_override_path_abs = path.join(paths.themes_abs, req.query.theme);			
-			app.set("views", theme_override_path_abs);	
-		}
+		// handle theme override
+		if (req.query.theme) site.theme = req.query.theme;
 		
+		// load theme
+		loadTheme(site.theme, app);
+
 		// render view
 		res.render(template, pageVars);
 	
@@ -128,36 +130,14 @@
 		var page_vars = {};
 		
 		// try to read file
-		var content = readFileSync(path.join(paths.content, req.slug));
+		var content = fileHelper.readSync(path.join(paths.content, req.slug));
 		
 		// if file had content, assign to page_var
 		if (content) page_vars.content = content;
-		else page_vars.content = readFileSync(path.join(paths.content, "404"));
+		else page_vars.content = fileHelper.readSync(path.join(paths.content, "404"));
 		
 		return page_vars;
 		
-	}
-
-	function readFileSync(filepath) {
-	
-		// list file formats
-		
-			var file_formats = [".html"];
-
-		// for each file format	
-		
-			for (i = 0; i < file_formats.length; i++) {
-			
-				test_msg("Trying to read: " + filepath + file_formats[i]);
-			
-				// if file exists, return its contents
-				if (fileExists(filepath + file_formats[i])) return fs.readFileSync(filepath + file_formats[i], "utf8");
-			
-			}	
-
-		// else return an error
-		return false;
-				
 	}
 	
 	function test_msg(msg1, msg2) {
