@@ -1,15 +1,16 @@
-# Peezy Demo Site
+# Peezy
 
-Peezy is a micro-CMS built in Node.js. 
+Peezy is a micro-CMS for Node.js. 
 
 Using it is easy:
 
 - clone this repo
-- customize the theme in /site/themes/default
+- npm install
 - add content to /site/content/
+- customize the theme in /site/themes/default
 - start the server
 
-This is my experiment in building a minimalist flat file publishing engine built around Express.js. Inspired heavily by WordPress, Jekyll and Harp.
+This is an experiment in building a minimalist flat-file publishing engine built on Express.js. Inspired heavily by WordPress, Jekyll and Harp.
 
 Not quite functional yet - Work in progress!
 
