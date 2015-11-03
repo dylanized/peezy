@@ -45,14 +45,14 @@
 	// index
 	
 		router.get("/", function(req, res) {
-			req.slug = "";
-		    res.render("index", {content: readFileSync(paths.homepage)});
+			req.slug = site.homepage;
+		    res.render("index", buildPageVars(req.slug));
 		});
 	
 	// pages
 	
 		router.get("/:slug", function(req, res) {
-			if (req.slug) res.render("index", {content: readFileSync(path.join(paths.pages, req.slug))});
+			if (req.slug) res.render("index", buildPageVars(req.slug));
 		});
 		
 		router.param("slug", function(req, res, next, slug) {
@@ -76,6 +76,26 @@
 		app.listen(port);
 		
 // functions
+
+	function buildPageVars(slug) {
+		
+		var page_vars = {};
+		
+		// try to read file
+		var content = readFileSync(path.join(paths.pages, slug));
+		
+		// if file had content, assign to page_var
+		if (content) page_vars.content = content;
+
+		// else set error and assign error msg
+		else {
+			page_vars.error = 404;
+			page_vars.content = readFileSync(path.join(paths.pages, "404"));
+		}
+		
+		return page_vars;
+		
+	}
 
 	function readFileSync(filepath) {
 	
