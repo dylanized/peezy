@@ -9,25 +9,42 @@
 	// site config
 	var site = {
 		"theme": "default",
-		"homepage": "index"
+		"homepage": "index",
+		"error" : "error"
 	};
 	
 	// folder config
 	var folders = {
-		"themes": "themes",
-		"content": "content",
-		"pages": "pages",
-		"public" : "public"	
+		"site" : "site",
 	};
 	
+	var subfolders = {
+		"themes": "themes",
+		"content": "content",
+		"public" : "public"		
+	};
+	
+	// build folder object
+	for (sub in subfolders) {
+		folders[sub] = path.join(folders["site"], subfolders[sub]);
+		console.log(folders[sub]);
+	}
+	
 	// build paths
+	
 	var paths = {};	
+	
 	paths.themes = "/" + folders.themes;
 	paths.themes_abs = path.join(__dirname, folders.themes);
+	paths.themes_rel = "/" + subfolders["themes"];
+	
 	paths.theme = path.join(folders.themes, site.theme);
 	paths.theme_abs = path.join(__dirname, paths.theme);
-	paths.pages = path.join(folders.content, folders.pages);
-	paths.homepage = path.join(paths.pages, site.homepage);
+	
+	paths.content = path.join(folders.content);
+	paths.homepage = path.join(paths.content, site.homepage);	
+	paths.error = path.join(paths.content, site.error);
+	
 	paths.public_abs = path.join(__dirname, folders.public);
 	
 	// set vars
@@ -42,7 +59,7 @@
 	app.set("views", paths.theme_abs);	
 	
 	// serve themes static files
-	app.use(paths.themes, express.static(paths.themes_abs));
+	app.use(paths.themes_rel, express.static(paths.themes_abs));
 
 	// serve root static files
 	app.use("/", express.static(paths.public_abs));	
@@ -91,7 +108,7 @@
 		var page_vars = {};
 		
 		// try to read file
-		var content = readFileSync(path.join(paths.pages, slug));
+		var content = readFileSync(path.join(paths.content, slug));
 		
 		// if file had content, assign to page_var
 		if (content) page_vars.content = content;
@@ -99,7 +116,7 @@
 		// else set error and assign error msg
 		else {
 			page_vars.error = 404;
-			page_vars.content = readFileSync(path.join(paths.pages, "404"));
+			page_vars.content = readFileSync(path.join(paths.content, "404"));
 		}
 		
 		return page_vars;
