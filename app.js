@@ -27,7 +27,6 @@
 	// build folder object
 	for (sub in subfolders) {
 		folders[sub] = path.join(folders["site"], subfolders[sub]);
-		console.log(folders[sub]);
 	}
 	
 	// build paths
