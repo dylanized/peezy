@@ -16,15 +16,19 @@
 	var folders = {
 		"themes": "themes",
 		"content": "content",
-		"pages": "pages"	
+		"pages": "pages",
+		"public" : "public"	
 	};
 	
 	// build paths
 	var paths = {};	
+	paths.themes = "/" + folders.themes;
+	paths.themes_abs = path.join(__dirname, folders.themes);
 	paths.theme = path.join(folders.themes, site.theme);
 	paths.theme_abs = path.join(__dirname, paths.theme);
 	paths.pages = path.join(folders.content, folders.pages);
 	paths.homepage = path.join(paths.pages, site.homepage);
+	paths.public_abs = path.join(__dirname, folders.public);
 	
 	// set vars
 	var test_mode = true;
@@ -36,7 +40,12 @@
 	// set up view engine
 	app.set("view engine", "ejs");	
 	app.set("views", paths.theme_abs);	
-	app.use("/", express.static(paths.theme_abs));
+	
+	// serve themes static files
+	app.use(paths.themes, express.static(paths.themes_abs));
+
+	// serve root static files
+	app.use("/", express.static(paths.public_abs));	
 
 // routing
 
