@@ -1,0 +1,471 @@
+/* MINIMOS CORE CSS */
+
+/* global */
+
+	html { font-size : 100%; }
+
+	body {
+		background : #fff;	
+		font-family : Georgia, "Times New Roman", serif;
+		color : #111;
+		line-height : 1.5;
+		font-size : 1.0em; /* adjust all */
+	}
+	
+	a:link,
+	a:visited 	{ color : blue; font-weight : normal; text-decoration : underline; }
+	
+	a:hover,
+	a:active 	{ color : red; font-weight : normal; text-decoration : underline; }
+	
+/* layout helpers */	
+	
+	.row {
+		width : 100%;
+		clear : both;
+		padding : 0;		
+	}
+	
+	.row.pad { padding : 2.5rem 0; }
+	
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}	
+		
+	.container {
+		max-width : 1000px;
+		margin: 0 auto;
+		padding : 0 1rem 0 1rem;
+	}	
+	
+/* default elements */	
+	
+	/* headers */
+
+		h1, .h1,
+		h2, .h2,
+		h3, .h3,
+		h4, .h4,
+		h5, .h5,
+		h6, .h6 {
+			color : #111;
+			font-weight : bold;
+			letter-spacing : 0;
+			margin : 0 0 1.3rem 0;
+			padding : 0;
+			line-height : 1.3;
+		}
+		
+		h1, .h1 		{ font-size : 2.0em; margin-bottom : 2.0em; }
+		h2, .h2			{ font-size : 1.8em; margin-bottom : 1.8em; }
+		h3, .h3			{ font-size : 1.6em; margin-bottom : 1.6em; }
+		h4, .h4			{ font-size : 1.3em; margin-bottom : 1.3em; }
+		h5, .h5			{ font-size : 1.0em; margin-bottom : 1.0em; }
+		h6, .h6			{ font-size : .8em; margin-bottom : .8em; }
+		
+		h1 a:link, 
+		h1 a:visited 	{ color : #ccc; text-decoration : none; }
+		h1 a:hover,
+		h1 a:active 	{ color : #111; text-decoration : underline; }
+	
+	/* content */
+	
+		p, .p {
+			margin : 0 0 1rem 0;
+		}
+		
+		ul {
+			list-style-type : square;
+			margin : 0 0 1rem 2rem;
+			padding : 0;
+		}
+		
+		ol {
+			margin : 0 0 1rem 2.25rem;
+			padding : 0;	
+		}
+		
+		li {
+			margin : 0 0 .25rem 0;
+		}
+		
+		small, .small {
+			font-size : 0.8em;
+		}
+		
+		blockquote, .blockquote {
+			border-top : 1px solid #e8e8e8;
+			border-bottom : 1px solid #e8e8e8;
+			text-align : center;
+			margin : 2rem 0 1.75rem 0;
+			padding : 1.25rem 6% 1px 6%;
+			color : #999;
+		}
+		
+		img {
+			vertical-align : bottom;
+			max-width : 100%;
+		}		
+		
+		hr { color : #111; }
+		
+	/* forms */
+	
+		fieldset, .fieldset {
+			border : none;
+			padding : 0;
+			margin : 0 0 1rem 0;
+		}
+
+		label, .label {
+			font-weight : normal;
+			display : inline-block;
+			margin-bottom : .25rem;
+		}
+	
+		input[type=text],
+		input[type=email],
+		input[type=password],
+		input[type=tel],
+		input[type=num],				
+		textarea,
+		select {
+			padding : .25rem;
+			border : 1px solid #ccc;
+			display : inline-block;
+			color : #111;
+			margin-bottom : .25rem;
+		}
+		
+		.placeholder				{ color : #999; }
+		::-webkit-input-placeholder { color : #999; }
+		:-moz-input-placeholder 	{ color : #999; }
+			
+	/* buttons */
+	
+		button,
+		.button,
+		input[type=submit] {
+			background-color : #333;
+			color : #fff;
+			padding : .75rem 1.5rem .75rem 1.5rem;
+			border : none;
+			margin : 0 1px .5rem 1px;
+			display : inline-block;		
+			line-height : 1.0;
+			vertical-align : bottom;
+			outline : none;
+			font-family : Helvetica, Arial, sans-serif;
+			text-align : center;		
+		}
+		
+		.button:link,
+		.button:visited 	{ color : #fff; text-decoration : none; }
+		
+		input[type=submit]:hover,
+		button:hover,
+		.button:hover,		
+		input[type=submit]:active,
+		button:active,
+		.button:active		{ color : #fff; text-decoration : underline; }
+			
+		/* big buttons (sm-) */
+		@media only screen and (max-width: 719px) {
+			
+			button, .button { display : block; }
+			
+		}
+
+/* page template */
+		
+	/* header */
+		
+		.header .menu {
+			list-style-type : none;
+			margin-bottom : 0;
+		}
+		
+		/* menu positioning (md+) */
+		@media only screen and (min-width: 720px) {
+			
+			.home .header .menu {
+				float : right;
+				margin-top : 1.5rem;
+			}
+							
+			.header li {
+				display : inline-block;
+				margin-left : 1.25rem;	
+			}			
+			
+		}
+		
+		.header li.current { text-decoration : underline; }
+		
+	/* content */
+	
+	/* footer */
+	
+		.footer {
+		
+		}
+	
+/* essential components */
+
+	/* content helpers */
+	
+		.display 	{ font-family : Helvetica, Arial, sans-serif; }
+		
+		.lead 		{ font-size : 1.25em; }
+		
+		.mark 		{ background-color : #e8e8e8; border-radius : 2px; }
+		
+		.section,
+		.push 		{ margin-bottom : 2.5rem; }	
+		
+		.push-top	{ margin-top : 2.5rem; }
+
+	/* posts */
+	
+		.post {
+				
+		}
+		
+		.post-header {
+			margin-bottom : 2rem;
+		}
+		
+	/* images */
+				
+		.wp-image,
+		.img-thumbnail {
+			display: inline-block;
+			padding: .25rem;
+			background-color: #fff;
+			border: 1px solid #e8e8e8;
+		}	
+		
+		.alignleft,
+		.alignright,
+		.alignnone,
+		.aligncenter {
+			display : block;
+			margin : 0 auto 1rem auto;
+		}		
+		
+		/* image alignment (md+) */
+		@media only screen and (min-width: 720px) {			
+	
+			.alignleft {
+				float: left;
+				padding-top : .25rem;
+				margin: 0 1rem .25rem 0;
+			}	
+		
+			.alignright {
+				float: right;
+				padding-top : 6px;
+				margin: 0 0 .25rem .75rem;
+			}
+			
+			.alignnone {
+				display : block;
+				margin : 0 0 .75rem 0;
+			}
+		
+		}		
+				
+	/* wp captions */
+		
+		.wp-caption p {
+			padding : 0 .75rem 0 .75rem;
+		}
+
+		.wp-caption.aligncenter p {
+			padding : 0 1.5rem 0 1.5rem;
+		}
+		
+		
+	/* tables */
+	
+		.table {
+			border-collapse : collapse;
+			border : 1px solid #999;
+			margin : 0 0 1rem 0;
+		}
+
+		.table th,
+		.table td {
+			padding : .5rem;
+			border : 1px solid #999;
+			display : table-cell;	
+		}		
+
+		.table th {
+			font-weight : bold;
+			background-color : #e8e8e8;
+		}	
+		
+		.table td { }	
+		
+	/* panel */
+	
+		.panel {
+			background-color : #e8e8e8;
+			border-radius : .5rem;
+			padding : 0 2rem 0 2rem;
+		}				
+		
+	/* cards */
+	
+		.card {
+			padding : .5rem;
+			float : left;
+			margin : 0 .75rem .75rem 0;
+		}			
+		
+	/* inline lists */
+	
+		ul.inline {
+			margin : 0;
+			padding : 0;
+			list-style-type : none;
+		}
+		
+		ul.inline li { 
+			display : inline-block;
+		}
+			
+	/* inline form rows */
+	
+		.inline label,	
+		.inline input,
+		.inline button 	{ display : inline-block; }	
+		
+		.inline input 	{ margin-right : .25rem; margin-bottom : 0; }
+		.inline label 	{ margin-right : 1rem; }
+		
+	/* hover effect */
+	
+		.hover {
+			opacity : 1.0;
+			transition : opacity 0.3s;
+		}
+		
+		.hover:hover,
+		.hover:active,
+		.hover:hover,
+		.hover:active {
+			opacity : 0.7 !important;
+			text-decoration : none !important;
+		}		
+
+/* custom utilities */
+		
+	/* margins, padding and borders */
+	
+		.last { margin : 0; padding : 0; }
+		
+		.margin-top				{ margin : 1rem; }
+		.margin-bottom			{ margin : 1rem; }
+		.margin-v				{ margin-top : 1rem; margin-bottom : 1rem; }
+		.margin-h				{ margin-left : 1rem; margin-right : 1rem; }
+	
+		.pad					{ padding : 1rem; }
+		.pad-top				{ padding-top : 1rem; }
+		.pad-bottom				{ padding-bottom : 1rem; }
+		.pad-v					{ padding-bottom : 1rem; padding-top : 1rem; }
+		.pad-h					{ padding-left : 1rem; padding-right : 1rem; }
+	
+		.border					{ border : 1px solid; }	
+		.border-top				{ border-top : 1px solid; }
+		.border-right			{ border-right : 1px solid; }
+		.border-bottom			{ border-bottom : 1px solid; }
+		.border-left			{ border-left : 1px solid; }
+		.rounded 				{ border-radius : .5rem; }
+	
+	/* other helpers */
+		
+		.indent 				{ margin-left : 1.5rem !important; }
+				
+		.width-tiny 			{ width : 2rem; }
+		.width-small			{ width : 6rem; }	
+		.width-medium			{ width : 12rem; }
+		.width-large			{ width : 20.5rem; }		
+		
+
+		/* large inputs (xs and sm) */		
+		@media only screen and (max-width: 719px) {	
+
+			.width-medium			{ width : 100%; }
+			.width-large			{ width : 100%; }		
+			
+		}
+		
+	/* custom colors */	
+			
+		/* primary - black  */
+		.color-primary			{ color : #111; }
+		.bgd-primary			{ background-color : #111; }
+		.border-primary			{ border-color : #111; }
+		
+		.color-primary a:link,
+		.color-primary a:visited { }
+
+		.color-primary a:hover,
+		.color-primary a:active	{ }		
+
+		/* meta - light gray */
+		.color-meta				{ color : #999; }
+		.bgd-meta				{ background-color : #999; }
+		.border-meta			{ border-color : #999; }
+
+		.color-meta a:link,
+		.color-meta a:visited	{ color : #999; text-decoration : none; }
+
+		.color-meta a:hover,
+		.color-meta a:active	{ color : red; text-decoration : underline; }
+		
+		/* matte - light black */
+		.color-matte			{ color : #333; }
+		.bgd-matte				{ background-color : #333; }
+		.border-matte			{ border-color : #333; }		
+
+		/* frame - very light gray */
+		.color-frame			{ color : #e8e8e8; }
+		.bgd-frame				{ background-color : #e8e8e8; }
+		.border,
+		.border-top,
+		.border-right,
+		.border-bottom,
+		.border-left			{ border-color : #e8e8e8; }
+		
+/* device styles */
+
+	/* xs */
+	@media only screen and (max-width: 539px) {
+		
+	}		
+	
+	/* sm+ */
+	@media only screen and (min-width: 540px) {
+		html { font-size : 107.5%; }
+	}			
+		
+	/* md+ */
+	@media only screen and (min-width: 720px) {
+		html { font-size : 115%; }	
+	}
+
+	/* lg+ */
+	@media only screen and (min-width: 960px) {
+		html { font-size : 125%; }	
+	}
+			
+	/* xl */
+	@media only screen and (min-width: 1200px) {
+		html { font-size : 135%; }	
+	}
+	
