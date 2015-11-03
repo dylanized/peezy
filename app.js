@@ -22,7 +22,7 @@
 	// build paths
 	var paths = {};	
 	paths.theme = path.join(folders.themes, site.theme);
-	paths.abstheme = path.join(__dirname, paths.theme);
+	paths.theme_abs = path.join(__dirname, paths.theme);
 	paths.pages = path.join(folders.content, folders.pages);
 	paths.homepage = path.join(paths.pages, site.homepage);
 	
@@ -35,8 +35,8 @@
 	
 	// set up view engine
 	app.set("view engine", "ejs");	
-	app.set("views", paths.abstheme);	
-	app.use("/", express.static(paths.abstheme));
+	app.set("views", paths.theme_abs);	
+	app.use("/", express.static(paths.theme_abs));
 
 // routing
 
