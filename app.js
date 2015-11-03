@@ -114,11 +114,15 @@
 		// build page vars
 		var pageVars = buildPageVars(req);
 		
-		// handle theme override
+		// if theme override
 		if (req.query.theme) site.theme = req.query.theme;
 		
 		// load theme
 		loadTheme(site.theme, app);
+
+		// if template or inc override
+		if (req.query.template) template = req.query.template;
+		if (req.query.inc) template = path.join("inc", req.query.inc);
 
 		// render view
 		res.render(template, pageVars);
