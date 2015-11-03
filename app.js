@@ -55,10 +55,12 @@
 	
 	// set up view engine
 	app.set("view engine", "ejs");	
+	
+	// set view folder
 	app.set("views", paths.theme_abs);	
 	
 	// serve themes static files
-	app.use(paths.themes_rel, express.static(paths.themes_abs));
+	app.use(paths.themes_rel, express.static(paths.themes_abs));	
 
 	// serve root static files
 	app.use("/", express.static(paths.public_abs));	
@@ -71,13 +73,13 @@
 	
 		router.get("/", function(req, res) {
 			req.slug = site.homepage;
-		    res.render("index", buildPageVars(req.slug));
+		    renderTheme("index", req, res);
 		});
 	
 	// pages
 	
 		router.get("/:slug", function(req, res) {
-			if (req.slug) res.render("index", buildPageVars(req.slug));
+			if (req.slug) renderTheme("index", req, res);
 		});
 		
 		router.param("slug", function(req, res, next, slug) {
@@ -102,21 +104,33 @@
 		
 // functions
 
-	function buildPageVars(slug) {
+	function renderTheme(template, req, res) {
+	
+		// build page vars
+		var pageVars = buildPageVars(req);
 		
+		// if theme override
+		if (req.query.theme) {		
+			// set override view folder
+			var theme_override_path_abs = path.join(paths.themes_abs, req.query.theme);			
+			app.set("views", theme_override_path_abs);	
+		}
+		
+		// render view
+		res.render(template, pageVars);
+	
+	}
+
+	function buildPageVars(req) {
+	
 		var page_vars = {};
 		
 		// try to read file
-		var content = readFileSync(path.join(paths.content, slug));
+		var content = readFileSync(path.join(paths.content, req.slug));
 		
 		// if file had content, assign to page_var
 		if (content) page_vars.content = content;
-
-		// else set error and assign error msg
-		else {
-			page_vars.error = 404;
-			page_vars.content = readFileSync(path.join(paths.content, "404"));
-		}
+		else page_vars.content = readFileSync(path.join(paths.content, "404"));
 		
 		return page_vars;
 		
