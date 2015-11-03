@@ -21,7 +21,7 @@
 	var subfolders = {
 		"themes": "themes",
 		"content": "content",
-		"public" : "public"		
+		"files" : "files"		
 	};
 	
 	// build folder object
@@ -44,7 +44,7 @@
 	paths.homepage = path.join(paths.content, site.homepage);	
 	paths.error = path.join(paths.content, site.error);
 	
-	paths.public_abs = path.join(__dirname, folders.public);
+	paths.files_abs = path.join(__dirname, folders.files);
 	
 	// set vars
 	var test_mode = true;
@@ -63,7 +63,7 @@
 	app.use(paths.themes_rel, express.static(paths.themes_abs));	
 
 	// serve root static files
-	app.use("/", express.static(paths.public_abs));	
+	app.use("/", express.static(paths.files_abs));	
 
 // routing
 
