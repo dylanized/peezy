@@ -60,7 +60,7 @@
 			
 			// instantiate express
 			var app = express();
-			var port = process.env.PORT || 8080;
+			var port = process.env.PORT || 1234;
 			
 			// set view engine
 			app.set("view engine", "ejs");
