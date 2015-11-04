@@ -1,3 +1,9 @@
+.gitignore
+site/pages
+site/themes/bsdkit
+site/themes/grayson
+site/themes/hkid
+site/themes/bsan
 .DS_Store
 node_modules/ejs
 node_modules/exists-file
