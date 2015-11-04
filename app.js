@@ -11,9 +11,9 @@
 	
 	var peezy = {};
 	
-// peezy init
+// module init
 	
-	peezy.init = function(app_config) {
+	peezy.init = function(app_config, cb) {
 	
 		// get site config
 		
@@ -95,6 +95,10 @@
 			
 				app.use('/', router);		
 				app.listen(port);
+				
+			// optional callback	
+				
+				if (cb) cb();
 			
 		// functions
 		
@@ -145,15 +149,12 @@
 				
 			}
 			
-			function test_msg(msg1, msg2) {
-				if (test_mode) {
-					console.log(msg1);
-					if (msg2) console.log(msg2);
-				}
-			}
-	
 	}
 	
-// launch peezy	
+// launch server	
 
-peezy.init(site, app);	
+	peezy.init(config, function() {
+	
+		console.log("Success!");
+	
+	});	
