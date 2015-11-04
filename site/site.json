@@ -1,0 +1,7 @@
+{
+	"name": "Peezy Demo Site",
+	"desc": "a micro-CMS for Node.js",
+	"theme": "default",
+	"homepage": "index",
+	"error" : "error"
+}

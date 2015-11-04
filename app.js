@@ -1,24 +1,8 @@
 // config
 
-	// site config
-	var site = {
-		"name": "Peezy Demo Site",
-		"desc": "a micro-CMS for Node.js",
-		"theme": "default",
-		"homepage": "index",
-		"error" : "error",
-	};
-	
 	// app config
-	var app = {
-		"folder" : "site",
-		"subfolders" : {
-			"themes": "themes",
-			"content": "content",
-			"public" : "public"		
-		}
-	};
-
+	var config = require("./config.json");
+	
 // app setup
 
 	var path = require("path"),
@@ -29,7 +13,11 @@
 	
 // peezy init
 	
-	peezy.init = function(site_config, app_config) {
+	peezy.init = function(app_config) {
+	
+		// get site config
+		
+			var site_config = require("./" + app_config.folder + "/site.json");
 	
 		// build vars
 	

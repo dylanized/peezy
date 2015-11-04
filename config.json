@@ -1,0 +1,8 @@
+{
+	"folder" : "site",
+	"subfolders" : {
+		"themes": "themes",
+		"content": "content",
+		"public" : "public"		
+	}
+}
