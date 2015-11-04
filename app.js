@@ -1,10 +1,7 @@
-// config
-
-	// app config
-	var config = require("./config.json");
-	
 // app setup
 
+	var config = require("./config.json");
+	
 	var path = require("path"),
 		express = require("express"),
 		fileHelper = require("peezy-file-helper");
@@ -115,9 +112,6 @@
 			}
 		
 			function renderTemplate(template, req, res) {
-			
-				// build page vars
-				var pageVars = buildPageVars(req);
 				
 				// if theme override
 				if (req.query.theme) site_config.theme = req.query.theme;
@@ -128,25 +122,27 @@
 				// if template or inc override
 				if (req.query.template) template = req.query.template;
 				if (req.query.inc) template = path.join("inc", req.query.inc);
-		
+					
+				// build locals
+				var locals = site_config;
+				
+				locals.slug = req.slug;
+				locals.template = template;
+				locals.content = getContent(req.slug);
+				
 				// render view
-				res.render(template, pageVars);
+				res.render(template, locals);
 			
 			}
 		
-			function buildPageVars(req) {
+			function getContent(slug) {
 			
-				var page_vars = {};
-				
-				// try to read file
-				var content = fileHelper.readSync(path.join(paths.content, req.slug));
-				
-				// if file had content, assign to page_var
-				if (content) page_vars.content = content;
-				else page_vars.content = fileHelper.readSync(path.join(paths.content, "404"));
-				
-				return page_vars;
-				
+				var filepath = path.join(paths.content, req.slug);
+				var error = path.join(paths.content, site.error);
+			
+				if (fileHelper.exists(filepath)) return fileHelper.readSync(filepath);
+				else return fileHelper.readSync(error);
+					
 			}
 			
 	}
