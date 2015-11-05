@@ -1,8 +1,9 @@
 {
-	"folder" : "site",
+	"folder" : "bsdkit",
 	"subfolders" : {
 		"themes": "themes",
 		"content": "content",
 		"public" : "public"		
-	}
+	},
+	"port" : 8000
 }

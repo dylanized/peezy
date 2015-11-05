@@ -45,7 +45,7 @@
 			
 			// instantiate express
 			var app = express();
-			var port = process.env.PORT || 1234;
+			var port = process.env.PORT || config.port;
 			
 			// set view engine
 			app.set("view engine", "ejs");
@@ -137,8 +137,10 @@
 		
 			function getContent(slug) {
 			
-				var filepath = path.join(paths.content, req.slug);
-				var error = path.join(paths.content, site.error);
+				var filepath = path.join(paths.content, slug);
+				var error = path.join(paths.content, site_config.error);
+				
+				console.log(filepath);
 			
 				if (fileHelper.exists(filepath)) return fileHelper.readSync(filepath);
 				else return fileHelper.readSync(error);

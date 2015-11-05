@@ -38,6 +38,10 @@ Customize and add files as needed. Peezy will wrap the theme around your content
 
 ```node app.js```
 
+(see default at http://localhost:8000)
+
+--
+
 Alpha version. Work in progress!
 
 by @dylanized
