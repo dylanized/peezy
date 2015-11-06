@@ -1,0 +1,12 @@
+{
+  "name": "default",
+  "version": "1.0.0",
+  "description": "Default Peezy theme",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
