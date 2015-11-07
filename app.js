@@ -3,7 +3,7 @@
 	var peezy = require("peezy");
 	
 	var config = require("./config.json");
-	config.siteFolder = "bsdkit";	
+	config.siteFolder = "site";	
 
 // launch server
 
