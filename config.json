@@ -1,6 +1,5 @@
 {
-	"folder" : "bsdkit",
-	"subfolders" : {
+	"folders" : {
 		"themes": "themes",
 		"content": "content",
 		"public" : "public"		
