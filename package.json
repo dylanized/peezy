@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dylanized/peezy#readme",
   "dependencies": {
+    "compression": "^1.6.0",
     "ejs": "^2.3.4",
     "ejs-locals": "^1.0.2",
     "exists-file": "^1.0.0",
