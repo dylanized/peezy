@@ -1,3 +1,5 @@
+.bin
+node_modules/html-minifier
 config.json
 .gitignore
 bsdkit

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title><%= name %> - <%= desc %></title>
+	<title><%= site.name %> - <%= site.desc %></title>
 		
 	<!-- encoding -->
 	<meta charset="utf-8" />
@@ -12,11 +12,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="#" />
+	<link rel="shortcut icon" href="<%= theme.path %>/favicon.ico" />
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="<%= themePath %>/lib/js/selectivizr-min.js"></script>
+		<script src="<%= theme.path %>/lib/js/selectivizr-min.js"></script>
 	<![endif]-->
 
 	<!-- fonts -->
@@ -24,11 +24,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
 	<!-- css -->
-	<link rel='stylesheet' id='reset-css' href='<%= themePath %>/css/reset.css' type='text/css' media='all' />	
-	<link rel='stylesheet' id='grid-css' href='<%= themePath %>/lib/css/simplegrid.css' type='text/css' media='all' />	
-	<link rel='stylesheet' id='core-css' href='<%= themePath %>/css/core.css' type='text/css' media='all' />		
-	<link rel='stylesheet' id='utility-css' href='<%= themePath %>/css/utility.css' type='text/css' media='all' />		
-	<link rel='stylesheet' id='overrides-css' href='<%= themePath %>/style.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='reset-css' href='<%= theme.path %>/css/reset.css' type='text/css' media='all' />	
+	<link rel='stylesheet' id='grid-css' href='<%= theme.path %>/lib/css/simplegrid.css' type='text/css' media='all' />	
+	<link rel='stylesheet' id='core-css' href='<%= theme.path %>/css/core.css' type='text/css' media='all' />		
+	<link rel='stylesheet' id='utility-css' href='<%= theme.path %>/css/utility.css' type='text/css' media='all' />		
+	<link rel='stylesheet' id='overrides-css' href='<%= theme.path %>/style.css' type='text/css' media='all' />
 
 	<!-- js -->
 	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver=2.1.3'></script>
@@ -40,8 +40,8 @@
 <header class="row header pad-v-30 border-bottom color-meta">
 <div class="container grid">
 	
-		<h1 class="logo margin-0 normal"><span><%= name %></span></h1>
-		<h3 class="h5 color-meta margin-0 normal"><%= desc %></h3>			
+		<h1 class="logo margin-0 normal"><span><%= site.name %></span></h1>
+		<h3 class="h5 color-meta margin-0 normal"><%= site.desc %></h3>			
 		
 	</nav>		
 
