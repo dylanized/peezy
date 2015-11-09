@@ -3,12 +3,13 @@
 	var peezy = require("peezy");
 	
 	var config = require("./config.json");
-	config.siteFolder = "site";	
+	
+	config.siteFolder = "bsdkit";
 
 // launch server
 
-	peezy.init(config, function() {
+	peezy.serve(config, function() {
 	
-		console.log("Peezy is running");
+		peezy.log("Peezy is running");
 	
 	});	
