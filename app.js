@@ -4,7 +4,7 @@
 	
 	var config = require("./config.json");
 	
-	config.siteFolder = "site";
+	config.siteFolder = "bsdkit";
 
 // launch server
 
