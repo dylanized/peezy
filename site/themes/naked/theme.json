@@ -1,0 +1,12 @@
+{
+  "name": "naked",
+  "version": "1.0.0",
+  "description": "Naked Peezy theme",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
