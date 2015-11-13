@@ -1,3 +1,5 @@
+node_modules/simple-logger
+node_modules/easy-export
 .bin
 node_modules/html-minifier
 config.json
