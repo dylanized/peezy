@@ -4,7 +4,9 @@
 	
 	var config = require("./config.json");
 	
-	config.siteFolder = "site";
+	// siteFolder override
+	var args = process.argv.slice(2);
+	if (args[0]) config.siteFolder = args[0];
 
 // launch server
 

@@ -1,4 +1,5 @@
 {
+	"siteFolder": "site",
 	"folders" : {
 		"themes": "themes",
 		"content": "content",
