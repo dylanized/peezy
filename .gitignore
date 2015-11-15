@@ -13,3 +13,8 @@ node_modules/ejs-locals
 node_modules/errorhandler
 node_modules/compression
 node_modules/express
+node_modules/recursive-readdir-sync
+node_modules/taffy
+node_modules/underscore
+node_modules/errorhandler
+node_modules/is-valid-email
