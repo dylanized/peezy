@@ -8,7 +8,7 @@ bsdkit
 .DS_Store
 node_modules/ejs
 node_modules/exists-file
-node_modules/underscore
+node_modules/lodash
 node_modules/ejs-locals
 node_modules/errorhandler
 node_modules/compression

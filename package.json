@@ -22,8 +22,8 @@
     "ejs-locals": "^1.0.2",
     "exists-file": "^1.0.0",
     "express": "^4.13.3",
+    "lodash": "^3.10.1",
     "recursive-readdir-sync": "^1.0.6",
-    "taffy": "^2.6.2",
-    "underscore": "^1.8.3"
+    "taffy": "^2.6.2"
   }
 }
