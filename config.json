@@ -5,6 +5,6 @@
 		"content": "content",
 		"public" : "public"		
 	},
-	"level" : "debug",
+	"level" : "verbose",
 	"port" : 8000
 }
