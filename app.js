@@ -6,8 +6,4 @@
 
 // launch server
 
-	peezy.serve(config, function() {
-	
-		peezy.log("Peezy is running");
-	
-	});	
+	peezy.serve(config);
