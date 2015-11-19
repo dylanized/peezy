@@ -1,10 +1,8 @@
 {
 	"siteFolder": "site",
-	"folders" : {
-		"themes": "themes",
-		"content": "content",
-		"public" : "public"		
-	},
-	"level" : "detail",
+	"themesFolder": "themes",
+	"contentFolder": "content",
+	"publicFolder" : "public",		
+	"level" : "info",
 	"port" : 8000
 }
