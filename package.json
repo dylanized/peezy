@@ -1,30 +1,37 @@
 {
-  "name": "peezy-demo",
-  "version": "1.0.0",
-  "description": "A very simple content management system",
+  "name": "peezy",
+  "version": "0.0.1",
+  "description": "a micro-CMS for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dylanized/peezy.git"
+    "url": "git+ssh://git@github.com/dylanized/peezy.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cms",
+    "flat",
+    "themes",
+    "templates"
+  ],
+  "author": "dylanized",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dylanized/peezy/issues"
   },
   "homepage": "https://github.com/dylanized/peezy#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "compression": "^1.6.0",
-    "ejs": "^2.3.4",
-    "ejs-locals": "^1.0.2",
-    "exists-file": "^1.0.0",
+    "compress": "^0.99.0",
+    "errorhandler": "^1.4.2",
     "express": "^4.13.3",
+    "fs": "0.0.2",
     "lodash": "^3.10.1",
-    "recursive-readdir-sync": "^1.0.6",
-    "taffy": "^2.6.2"
+    "path": "^0.12.7",
+    "peezy-file-helper": "0.0.2",
+    "peezy-logger": "0.0.2",
+    "render-minified": "^1.0.0"
   }
 }
