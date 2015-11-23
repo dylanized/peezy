@@ -1,6 +1,6 @@
 {
   "name": "peezy",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "a micro-CMS for Node.js",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/dylanized/peezy#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "compress": "^0.99.0",
+    "compression": "^1.6.0",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
     "fs": "0.0.2",

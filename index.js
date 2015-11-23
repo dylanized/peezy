@@ -9,7 +9,7 @@
 			compress = require("compression"),
 			errorhandler = require("errorhandler"),
 			_ = require("lodash"),
-			commander = require("commander");
+			program = require("commander");
 		
 	// submodules
 	
